@@ -11,7 +11,7 @@ module.exports={
     devServer: {
         open: true,
         hot: true,
-        port: 3000
+        port: 3100
     },
     mode: 'development',
     resolve:{
@@ -40,6 +40,17 @@ module.exports={
                     MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
+                ]
+            },
+            {
+                test: /\.(png|gif|jpg)$/,
+                use: [
+                    {
+                        'loader': 'file-loader',
+                        options: {
+                            name: 'assets/[hash].[ext]',
+                        }
+                    }
                 ]
             }
         ]
